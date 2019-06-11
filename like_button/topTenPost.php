@@ -49,7 +49,12 @@ class likeNumbers extends WP_Widget {
 	
 
 
-	
+		$rowcount =$wpdb->get_var("select count(*)
+								from wp_posts p
+								where EXISTS (select count(l.post_id)
+											  from like__button l
+											  where l.post_id=p.ID
+											  GROUP by l.post_id)");
 	$posts = $wpdb->get_results("select p.id,p.post_title, count(l.post_id) as coun 
 								from wp_posts p, like__button l 
 								where p.id=l.post_id 
@@ -60,6 +65,8 @@ class likeNumbers extends WP_Widget {
 	?>
 	
 	<link rel="stylesheet" href="<?php echo get_site_url()."/wp-content/plugins/like_button/public/css/";?>bootstrap.min.css">
+	
+
 	<table class="table table-bordered table-secondary">
 		<thead >
 			<tr class="table-active">
@@ -68,15 +75,23 @@ class likeNumbers extends WP_Widget {
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach ($posts as $likedPost ) {
-				$n++;
-				echo "<tr>
-						<th scope='row'>".$n."</th>
-						<td>".$likedPost->post_title."</td>
-					  </tr>";
-			}?>
+			<?php 
+				if($rowcount>0) {
+					foreach ($posts as $likedPost ) {
+					$n++;
+					echo "<tr>
+							<th scope='row'>".$n."</th>
+							<td>".$likedPost->post_title."</td>
+						  </tr>";
+			       }
+				}else{
+					echo "<tr><td colspan='2'>No data available.</td></tr>";
+				}
+			
+            ?>
 		</tbody>
 	</table>
+
 	<?php
 		//echo $args['after_widget'];
     }

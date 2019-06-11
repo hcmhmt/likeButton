@@ -88,16 +88,21 @@ function like_statistics_management(){
 	<table class="table table-hover table-responsive-md table-bordered">
 		<thead class="thead-dark">
 			<tr class="row">
-				
 				<th class="col d-flex justify-content-center">Tag Name</th>
 				<th class="col d-flex justify-content-center">Number of Likes</th>
 			</tr>
 		</thead>
 		<tbody>';
+		if($rowcount>0) {
 				foreach ($posts as $likedPost ) {
 					echo "<tr class='table-secondary row '><td class='col d-flex justify-content-center'>".$likedPost->name."</td>";
 					echo "<td class='col d-flex justify-content-center'>".$likedPost->c."</td></tr>";
 				}
+		}else{
+					echo "<tr class='table-secondary row '><td colspan='2' class='col d-flex justify-content-center'>No data available.</td></tr>";
+		
+		
+		}
 		echo "</tbody></table><div class='row'>";
 		
 		for ($x=1;$x<=$num_of_page;$x++){
