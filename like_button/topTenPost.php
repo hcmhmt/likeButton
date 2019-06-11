@@ -17,7 +17,7 @@ class likeNumbers extends WP_Widget {
     ]);
     }
     
-    // Yönetim panelindeki görülecek alanı burada hazırlayacağız
+
     public function form($instance)
     {
 		$widget_title = !empty($instance['widget_title']) ? $instance['widget_title'] : 'Top 10 Post';
