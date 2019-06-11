@@ -1,0 +1,59 @@
+.btn1 {
+  padding: 15px 20px 15px 20px;
+  display: table;
+  position: relative;
+  color:white;
+  cursor:pointer;
+  border-radius:1.8rem;
+  max-width:200px;
+  transition:0.3s;
+   font-size:0.8rem;	
+}
+
+
+
+.btn{
+  margin:30px;
+  padding:20px;
+  border:none;
+  color:white;
+  cursor:pointer;
+  border-radius:1.8rem;
+  max-width:200px;
+  transition:0.3s;
+
+}
+.txt{
+  font-size:0.8rem;	
+	
+}
+.normal{
+  background-color:#e74c3c;
+}
+.like{
+	background-color: #d4cfcf;
+}
+.normal:hover{
+     background-color:rgb(255, 80, 80);
+     opacity:1;
+  }
+  .like:hover{
+     background-color:rgb(255, 102, 102);
+     opacity:1;
+  }
+  input.wpi-button:hover, input.wpi-button:active, input.wpi-button:focus {
+padding: 11px 23px !important;
+}
+
+.table1 {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.th1, .td1 {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#f5f5f5;}
